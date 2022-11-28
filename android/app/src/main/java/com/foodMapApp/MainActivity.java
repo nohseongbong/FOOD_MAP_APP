@@ -1,4 +1,4 @@
-package com.food_map_app;
+package com.foodMapApp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

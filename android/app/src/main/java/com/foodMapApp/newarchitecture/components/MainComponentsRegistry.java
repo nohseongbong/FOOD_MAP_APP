@@ -1,4 +1,4 @@
-package com.food_map_app.newarchitecture.components;
+package com.foodMapApp.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

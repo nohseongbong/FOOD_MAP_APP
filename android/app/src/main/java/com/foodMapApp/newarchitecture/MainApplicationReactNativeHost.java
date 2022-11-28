@@ -1,4 +1,4 @@
-package com.food_map_app.newarchitecture;
+package com.foodMapApp.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.food_map_app.BuildConfig;
-import com.food_map_app.newarchitecture.components.MainComponentsRegistry;
-import com.food_map_app.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.foodMapApp.BuildConfig;
+import com.foodMapApp.newarchitecture.components.MainComponentsRegistry;
+import com.foodMapApp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
