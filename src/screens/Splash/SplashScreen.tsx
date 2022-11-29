@@ -3,7 +3,6 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { View, StyleSheet, Image } from 'react-native';
 import { RootStackParamList } from '../../util/rootStackParams';
-import splash_logo from '../../assets/images/splash_logo.png';
 
 type mainScreenProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -22,7 +21,11 @@ const SplashScreen = () => {
   );
   return (
     <View style={styles.contain}>
-      <Image source={splash_logo} resizeMode={'contain'} style={styles.logo} />
+      <Image
+        source={require('../../assets/images/splash_logo.png')}
+        resizeMode={'contain'}
+        style={styles.logo}
+      />
     </View>
   );
 };
