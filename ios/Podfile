@@ -10,6 +10,13 @@ target 'FOOD_MAP_APP' do
   # Flags change depending on the env values.
   flags = get_default_flags()
 
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-PhotoLibraryAddOnly', :path => "#{permissions_path}/PhotoLibraryAddOnly"
+
+
   use_react_native!(
     :path => config[:reactNativePath],
     # Hermes is now enabled by default. Disable by setting this flag to false.
@@ -38,6 +45,9 @@ target 'FOOD_MAP_APP' do
       # necessary for Mac Catalyst builds
       :mac_catalyst_enabled => false
     )
+    Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+
+ 
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
