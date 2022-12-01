@@ -14,7 +14,6 @@ const NaverMap = () => {
   const P1 = { latitude: 37.39428145504664, longitude: 127.11273613232407 };
 
   const onClickMap = (event: string) => {
-    console.log('클릭');
     setIsFocus((e) => !e);
   };
 
