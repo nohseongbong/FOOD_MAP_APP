@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import NaverMap from '../../component/NaverMap';
-import { StyleSheet, View } from 'react-native';
-import realm from '../../lib/db/schema';
+import { StyleSheet, Text, View } from 'react-native';
+import { observer } from 'mobx-react-lite';
 import { StoreType } from '../../lib/db/schema';
 import { api } from '../../lib/api/api';
+import NaverMap from '../../component/NaverMap';
+import realm from '../../lib/db/schema';
+import TopTab from '../../component/TopTab';
 
-const MainScreen = () => {
+const MainScreen = observer(() => {
   const [data, setData] = useState<StoreType>({
-    id: '1',
-    name: '테스트',
-    category: '음식점',
-    latitude: 3,
-    longitude: 4,
+    id: 0,
+    name: '가게 이름',
+    category: '한식',
+    latitude: 37.564362,
+    longitude: 126.977011,
+    imageUrl: '',
   });
 
   useEffect(() => {
     // realm.write(() => {
     //   realm.create('Store', data);
     // });
-    api.getStore();
     const test = async () => {
       const res = await api.getStore();
       console.log(res, ' : get');
@@ -28,10 +30,11 @@ const MainScreen = () => {
 
   return (
     <View style={styles.contain}>
+      <TopTab />
       <NaverMap />
     </View>
   );
-};
+});
 const styles = StyleSheet.create({
   contain: {
     flex: 1,

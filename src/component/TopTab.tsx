@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 import {
   Text,
@@ -8,18 +9,15 @@ import {
   Animated,
 } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { mapModel } from '../lib/model/mapModel';
 import COLOR from '../style/palette';
-
-type TabPropsType = {
-  isFocus: boolean;
-};
 
 const statusBarHt =
   Platform.OS === 'ios'
     ? getStatusBarHeight(true) + 15
     : StatusBar.currentHeight;
 
-const TopTab = ({ isFocus }: TabPropsType) => {
+const TopTab = observer(() => {
   const [animation, setAnimation] = useState(new Animated.Value(0));
 
   const animationStyles = {
@@ -27,10 +25,10 @@ const TopTab = ({ isFocus }: TabPropsType) => {
   };
   useEffect(() => {
     changeMapFocus();
-  }, [isFocus]);
+  }, [mapModel.isFocusMap]);
 
   const changeMapFocus = () => {
-    if (isFocus) {
+    if (mapModel.isFocusMap) {
       Animated.timing(animation, {
         toValue: 1,
         duration: 300,
@@ -60,7 +58,7 @@ const TopTab = ({ isFocus }: TabPropsType) => {
       </TouchableOpacity>
     </Animated.View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   contain: {

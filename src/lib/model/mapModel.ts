@@ -2,6 +2,7 @@ import { makeAutoObservable } from 'mobx';
 
 class MapModel {
   isFocusMap = true;
+  test = '기본';
 
   constructor() {
     makeAutoObservable(this);

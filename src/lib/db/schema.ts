@@ -1,11 +1,12 @@
 import Realm from 'realm';
 
 export interface StoreType {
-  id: string;
+  id: number;
   name: string;
   category: string;
   latitude: number;
   longitude: number;
+  imageUrl: string;
   // TODO:: 즐겨찾기 상태 추가
 }
 
@@ -17,11 +18,11 @@ Store.schema = {
   name: 'Store',
   primaryKey: 'id',
   properties: {
-    id: 'string',
+    id: 'int',
     name: 'string',
     category: 'string',
-    latitude: 'int',
-    longitude: 'int',
+    latitude: 'double',
+    longitude: 'double',
   },
 };
 
