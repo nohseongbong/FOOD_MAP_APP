@@ -6,7 +6,7 @@ import { RootStackParamList } from '../../util/rootStackParams';
 
 type mainScreenProp = NativeStackNavigationProp<
   RootStackParamList,
-  'MainStack'
+  'OnboardingScreen'
 >;
 
 const SplashScreen = () => {
@@ -15,7 +15,7 @@ const SplashScreen = () => {
   useFocusEffect(
     React.useCallback(() => {
       setTimeout(() => {
-        navigation.navigate('MainStack');
+        navigation.navigate('OnboardingScreen');
       }, 2000);
     }, [navigation]),
   );

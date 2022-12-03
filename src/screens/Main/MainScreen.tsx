@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import { StoreType } from '../../lib/db/schema';
 import { api } from '../../lib/api/api';

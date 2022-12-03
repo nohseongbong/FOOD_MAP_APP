@@ -1,29 +1,37 @@
-import React from 'react';
-import { Image, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Image, Platform, View } from 'react-native';
+import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 import { Marker } from 'react-native-nmap';
 import { StoreType } from '../lib/db/schema';
+import img from '../assets/images/splash_logo.png';
 
 const CustomMarker = ({ item }) => {
   const { id, name, category, latitude, longitude, imageUrl, onClickStore } =
     item;
+
+  const getPhotos = async () => {
+    try {
+      const { edges } = await CameraRoll.getPhotos({
+        first: 100,
+      });
+      console.log('📸', edges);
+    } catch (error) {
+      console.log('getPhoto', error);
+    }
+  };
+
+  useEffect(() => {
+    getPhotos();
+  }, []);
   return (
     <Marker
-      width={50}
+      width={40}
       height={50}
       coordinate={{ latitude, longitude }}
       onClick={() => onClickStore(item)}
-    >
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: 'red',
-        }}
-      >
-        <Image style={{ flex: 1 }} resizeMode={'contain'} />
-      </View>
-    </Marker>
+      // image={{ uri: 'https://via.placeholder.com/150/24f355' }}
+      image={img}
+    />
   );
 };
 
